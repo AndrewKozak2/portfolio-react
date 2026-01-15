@@ -1,104 +1,54 @@
-import { useState } from "react";
+import { FaTelegram, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"; // Переконайся, що імпортуєш іконки
 import styles from "./Contact.module.css";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data Sent:", formData);
-    alert("Дякую! Повідомлення відправлено (в консоль).");
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
     <section id="contact" className={styles.section}>
       <h2 className={styles.heading}>Зв'язатися зі мною</h2>
-      <div className={styles.container}>
-        {/* Ліва частина: Контактна інформація */}
-        <div className={styles.info}>
-          <p className={styles.text}>
-            Відкритий до співпраці та нових можливостей. Якщо у вас є питання
-            або пропозиція — пишіть!
-          </p>
-          <div className={styles.links}>
-            <a href="mailto:chiron1600@gmail.com" className={styles.link}>
-              chiron1600@gmail.com
-            </a>
-            <a
-              href="https://www.linkedin.com/in/andrew-kozak-a71992355/"
-              target="_blank"
-              className={styles.link}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/AndrewKozak2"
-              target="_blank"
-              className={styles.link}
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
+      <p className={styles.subtext}>
+        Я завжди відкритий до обговорення нових проектів, ідей або можливості
+        стати частиною вашої команди.
+      </p>
 
-        {/* Права частина: Форма */}
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.formGroup}>
-            <label htmlFor="name">Ім'я</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className={styles.input}
-            />
-          </div>
+      <div className={styles.grid}>
+        <a
+          href="mailto:chiron1600@gmail.com"
+          className={`${styles.card} ${styles.email}`}
+        >
+          <FaEnvelope className={styles.icon} />
+          <span>Email</span>
+          <small>chiron1600@gmail.com</small>
+        </a>
 
-          <div className={styles.formGroup}>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className={styles.input}
-            />
-          </div>
+        <a
+          href="https://linkedin.com/in/your-profile"
+          target="_blank"
+          className={`${styles.card} ${styles.linkedin}`}
+        >
+          <FaLinkedin className={styles.icon} />
+          <span>LinkedIn</span>
+          <small>Мій профіль</small>
+        </a>
 
-          <div className={styles.formGroup}>
-            <label htmlFor="message">Повідомлення</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className={styles.textarea}
-              rows="5"
-            ></textarea>
-          </div>
+        <a
+          href="https://t.me/your-telegram"
+          target="_blank"
+          className={`${styles.card} ${styles.telegram}`}
+        >
+          <FaTelegram className={styles.icon} />
+          <span>Telegram</span>
+          <small>Швидкий зв'язок</small>
+        </a>
 
-          <button type="submit" className={styles.submitBtn}>
-            Надіслати
-          </button>
-        </form>
+        <a
+          href="https://github.com/AndrewKozak2"
+          target="_blank"
+          className={`${styles.card} ${styles.github}`}
+        >
+          <FaGithub className={styles.icon} />
+          <span>GitHub</span>
+          <small>Мій код</small>
+        </a>
       </div>
     </section>
   );
