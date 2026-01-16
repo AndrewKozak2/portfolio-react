@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import styles from "./Layout.module.css";
 import Footer from "../Footer/Footer";
 import { Background } from "../Background/Background";
+import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
 
 export default function Layout() {
   return (
@@ -14,6 +15,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

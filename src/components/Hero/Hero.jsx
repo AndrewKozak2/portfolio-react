@@ -26,7 +26,6 @@ export function Hero() {
 
       {/* ПРАВА ЧАСТИНА: ТЕКСТ */}
       <div className={styles.content}>
-        {/* ВІТАННЯ (Зсунуте вправо і вверх через CSS) */}
         <motion.div
           className={styles.greetingWrapper}
           initial={{ opacity: 0, y: -20 }}
@@ -41,7 +40,6 @@ export function Hero() {
           </span>
         </motion.div>
 
-        {/* ЗАГОЛОВОК: Frontend (enter) Developer */}
         <motion.div
           className={styles.titleWrapper}
           initial={{ opacity: 0, x: 50 }}
@@ -49,15 +47,10 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <TypeAnimation
-            sequence={[
-              "Frontend\nDeveloper", // \n робить перенос на новий рядок
-              5000, // Пауза 5 секунд
-              "", // Стирання
-              500, // Пауза перед стартом
-            ]}
+            sequence={["Frontend\nDeveloper", 5000, "", 500]}
             wrapper="h1"
-            speed={40} // Швидкість друку
-            deletionSpeed={50} // Швидкість стирання
+            speed={40}
+            deletionSpeed={50}
             repeat={Infinity}
             className={styles.titleAnimated}
             cursor={true}
@@ -73,20 +66,6 @@ export function Hero() {
           Створюю сучасні, швидкі та адаптивні веб-інтерфейси, використовуючи
           React та екосистему JavaScript.
         </motion.p>
-
-        <motion.div
-          className={styles.actions}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          <a href="#projects" className={styles.primaryBtn}>
-            Мої роботи
-          </a>
-          <a href="#contact" className={styles.secondaryBtn}>
-            Зв'язатись
-          </a>
-        </motion.div>
       </div>
     </section>
   );

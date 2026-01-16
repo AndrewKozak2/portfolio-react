@@ -1,4 +1,4 @@
-import { FaTelegram, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"; // Переконайся, що імпортуєш іконки
+import { FaTelegram, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
 export function Contact() {
