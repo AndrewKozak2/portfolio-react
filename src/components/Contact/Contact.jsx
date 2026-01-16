@@ -31,7 +31,7 @@ export function Contact() {
         </a>
 
         <a
-          href="https://t.me/@andrewkozak"
+          href="https://t.me/andrewkozak"
           target="_blank"
           className={`${styles.card} ${styles.telegram}`}
         >
