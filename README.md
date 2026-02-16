@@ -1,16 +1,33 @@
-# React + Vite
+# Kozak.Dev | Frontend Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo: https://kozak-dev.vercel.app/
 
-Currently, two official plugins are available:
+## Архітектура та Стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Проєкт побудований з фокусом на продуктивність, інкапсуляцію логіки та плавні UI-взаємодії.
 
-## React Compiler
+* **Core:** React 18, Vite (для швидкого HMR та оптимізованої збірки).
+* **Styling:** CSS Modules (ізоляція областей видимості стилів, уникнення колізій класів).
+* **Animations:** Framer Motion.
+* **Icons:** React Icons.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Ключові інженерні рішення
 
-## Expanding the ESLint configuration
+* **Оптимізація Virtual DOM (Load More Pattern):** Замість рендеру всього масиву проєктів (що створює зайве навантаження на DOM), реалізовано керовану пагінацію. Стейт `visibleCount` контролює зріз масиву (`slice`). При оновленні стану React точково монтує лише нові вузли, не перемальовуючи існуючі картки.
+* **Кастомна логіка рендеру анімацій:** Вирішено проблему блокування анімацій при динамічному додаванні елементів у DOM. Замість делегування контролю батьківському контейнеру (`staggerChildren`), кожна картка самостійно відслідковує своє потрапляння у viewport (`whileInView`). Ефект каскадної появи збережено завдяки динамічному обчисленню `delay` на основі індексу елемента через prop `custom`.
+* **Data Layer Isolation:** Дані (скіли, об'єкти проєктів) винесені в окремі константи (`src/data/`). Це відділяє бізнес-логіку від UI-шару, роблячи компоненти чистими (Clean Code) та готовими до масштабування або заміни на реальний API.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Локальний запуск (Local Development)
+```bash
+1. Клонувати репозиторій:
+
+git clone https://github.com/AndrewKozak2/portfolio-react.git
+
+2.  Встановити залежності:
+
+npm install
+
+3. Запустити локальний сервер:
+
+npm run dev
+```
