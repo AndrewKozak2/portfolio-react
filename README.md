@@ -18,16 +18,16 @@ Live Demo: https://kozak-dev.vercel.app/
 * **Data Layer Isolation:** Дані (скіли, об'єкти проєктів) винесені в окремі константи (`src/data/`). Це відділяє бізнес-логіку від UI-шару, роблячи компоненти чистими (Clean Code) та готовими до масштабування або заміни на реальний API.
 
 ## Локальний запуск (Local Development)
-```bash
+
 1. Клонувати репозиторій:
-
+```bash
 git clone https://github.com/AndrewKozak2/portfolio-react.git
-
+```
 2.  Встановити залежності:
-
+```bash
 npm install
-
+```
 3. Запустити локальний сервер:
-
+```bash
 npm run dev
 ```
